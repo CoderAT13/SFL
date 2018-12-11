@@ -1,0 +1,29 @@
+<!--index.wxml-->
+<view class="title">SFL</view>
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{msg2}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+  <button bindtap='navigate_to_missions'>missions</button>
+  <text class="text_info">
+  下面这段只是测试 (新用户需要进两次小程序才有显示）
+
+  NickName: {{msg1.NickName}}
+
+  accPoint: {{msg1.accPoint}}
+
+  openID: {{msg1._openid}}
+
+  dailyMission(空）: {{msg1.dailyMission}}
+
+  randomMission(空）: {{msg1.randomMission}}
+  
+  </text>
+</view>
