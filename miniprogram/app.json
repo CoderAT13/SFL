@@ -1,13 +1,17 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/missions/missions"
+    "pages/index2/index",
+    "pages/index/index",  
+    "pages/logs/logs",
+    "pages/makeTask/makeTask",
+    "pages/taskDetails/taskDetails",
+    "pages/userIndex/userIndex"
   ],
   "window": {
-    "backgroundColor": "#F6F6F6",
+    "backgroundColor": "pink",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarTitleText": "SFL",
     "navigationBarTextStyle": "black"
   }
 }

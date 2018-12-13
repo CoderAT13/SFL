@@ -1,0 +1,31 @@
+<!--pages/index/index.wxml-->
+<view id='topBar'>
+  <button class="userinfo-avatar" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> N </button>
+  <image class='userinfo-avatar' wx:if="{{!(!hasUserInfo && canIUse)}}"  bindtap="toUserIndex" src="{{userInfo.avatarUrl}}">
+    
+  </image>
+  <view id="plusButton" bindtap='toMakeTask'>
+  <view id="plus" animation="{{plusAni}}"><text wx:if="{{showPlus}}">+</text></view>
+  </view>
+</view>
+<view class="taskBar dayTaskBar" animation="{{aniForDayBar}}">
+  <view class="task" wx:for="{{dayTask}}" wx:for-item="item" wx:key="unique" bindtap='toDetails'>
+    <text class="taskName">{{item.name}}</text>
+    <button class="taskButton" wx:if="{{item.isFinished}}">√</button>
+    <button class="taskButton" wx:else>×</button>
+  </view>
+</view>
+<view class="taskBar monthTaskBar" animation="{{aniForMonthBar}}">
+  <view class="task" wx:for="{{monthTask}}" wx:for-item="item" wx:key="unique" bindtap='toDetails'>
+    <text>{{item.name}}</text>
+    <button class="taskButton" wx:if="{{item.isFinished}}">未完成</button>
+    <button class="taskButton" wx:else>已完成</button>
+  </view>
+</view>
+<view class="taskBar yearTaskBar" animation="{{aniForYearBar}}">
+  <view class="task" wx:for="{{yearTask}}" wx:for-item="item" wx:key="unique" bindtap='toDetails'>
+    <text>{{item.name}}</text>
+    <button class="taskButton" wx:if="{{item.isFinished}}">未完成</button>
+    <button class="taskButton" wx:else>已完成</button>
+  </view>
+</view>

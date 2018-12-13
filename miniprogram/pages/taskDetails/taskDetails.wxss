@@ -1,0 +1,30 @@
+/* pages/taskDetails/taskDetails.wxss */
+/* pages/makeTask/makeTask.wxss */
+.lineInputBar{
+  margin: 10rpx;
+  border: 1rpx black solid;
+}
+.inputArea{
+  width: 95%;
+  height: 300rpx;
+  margin: 10rpx;
+  border: 1rpx black solid;
+  font-size: 30rpx;
+}
+.tag{
+  display: inline-block;
+  font-size: 30rpx;
+  border-radius: 20rpx 20rpx 20rpx 20rpx ;
+  border: 1rpx black solid;
+  margin: 20rpx;
+  padding: 20rpx;
+}
+.tagSelected{
+  background-color: gray;
+}
+.tagBar{
+  min-height: 200rpx;
+}
+.inputBar{
+  display: block;
+}

@@ -1,0 +1,22 @@
+<!--pages/taskDetails/taskDetails.wxml-->
+<view class="inputBar">
+  <form class="inputForm" bindsubmit="formSubmit" bindreset="formReset">
+  <view>
+    <text>任务：</text>
+    <text>{{taskName}}</text>
+    <text class="tag">{{tag}}</text>
+  </view>
+  <view>
+    <text>详情：</text>
+    <text>{{taskDetails}}</text>
+  </view>
+  <view>
+    <text>悬赏积分:</text>
+    <text>{{accuPoint}}</text>
+  </view>
+  <view class="btn-area">
+      <button bindtap='finish'>√</button>
+      <button bindtap='cancel'>×</button>
+  </view>
+</form>
+</view>

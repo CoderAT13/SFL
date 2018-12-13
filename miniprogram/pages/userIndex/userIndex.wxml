@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <block>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <text class="userinfo-point">积分:{{accuPoint}}</text>
+    </block>
+  </view>
+  <view class="colorBallBar">
+    <view class="colorBall" id="red"></view>
+    <view class="colorBall" id="yellow"></view>
+    <view class="colorBall" id="green"></view>
+    <view class="colorBall" id="blue"></view>
+    <!-- <view class="colorBall"></view>
+    <view class="colorBall"></view>
+    <view class="colorBall"></view> -->
+  </view>
+</view>

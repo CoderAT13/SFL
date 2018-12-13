@@ -1,0 +1,83 @@
+/* pages/index/index.wxss */
+
+#topBar{
+  top: -10rpx;
+  position: fixed;
+  height: 75rpx;
+  width: 100%;
+  background-color: rgb(53, 167, 196);
+  border-radius: 0 0 10% 70%;
+  z-index: 10;
+  box-shadow: 0rpx 0rpx 10rpx rgb(153, 153, 153);
+}
+#plusButton{
+  top: 40rpx;
+  left: 45%;
+  position: fixed;
+}
+#plusButton:hover #plus{
+  box-shadow: 0rpx 0rpx 0rpx rgb(153, 153, 153);
+}
+#plus{
+  transition: box-shadow 0.25s;
+  box-shadow: 0rpx 0rpx 20rpx rgb(153, 153, 153);
+  background-color: rgb(255, 118, 118);
+  color: white;
+  font-size: 50rpx;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+}
+#plus text{
+  margin-left: auto;
+  margin-right: auto;
+}
+.userinfo-avatar {
+  position: relative;
+  left: 600rpx;
+  width: 100rpx;
+  height: 100rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+image{
+  box-shadow: 0rpx 0rpx 30rpx rgb(121, 121, 121);
+  margin: 0rpx;
+}
+.taskBar{
+  min-height: 100rpx;
+  background-color: rgb(199, 238, 197);
+  box-shadow: 0rpx 0rpx 50rpx rgba(121, 121, 121, 0.685);
+  border-radius: 0rpx 0rpx 30rpx 30rpx;
+  position: relative;
+  height: 300rpx;
+}
+.dayTaskBar{
+  z-index: 3;
+}
+.monthTaskBar{
+    top: -100rpx;
+    z-index: 2;
+}
+.yearTaskBar{
+  top: -200rpx;
+  z-index: 1;
+}
+.task{
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+}
+.taskButton{
+  display: inline-block;
+  border-radius: 100%;
+}
+
+#plusButton{
+  text-align: center;
+}

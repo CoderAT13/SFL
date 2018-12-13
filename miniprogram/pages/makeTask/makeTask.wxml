@@ -1,0 +1,18 @@
+<!--pages/makeTask/makeTask.wxml-->
+<view class="tagBar">
+  <view wx:for="{{tagList}}" wx:for-item="item" wx:key="unique" data-id="{{index}}" class="tag '{{item.checked?'tagSelected':''}}'" bindtap='radio'>
+    <text>{{item.value}}</text>
+  </view>
+</view>
+<view class="inputBar">
+  <form class="inputForm" bindsubmit="formSubmit" bindreset="formReset">
+  <text>任务：</text>
+  <input class="lineInputBar" name="inputName" placeholder="如跑步"/>
+  <text>详情：</text>
+  <textarea class="inputArea" name="inputDetails" placeholder='如配速大于10m/s'></textarea>
+  <view class="btn-area">
+      <button form-type="submit">√</button>
+      <button form-type="reset">×</button>
+  </view>
+</form>
+</view>

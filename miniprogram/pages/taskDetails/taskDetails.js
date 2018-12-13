@@ -1,31 +1,21 @@
-// miniprogram/pages/missions/missions.js
-
+// pages/taskDetails/taskDetails.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    dailyMissions: [],
-    randomMissions: [],
-    userInfo: {},
-
+    taskName:"任务名",
+    taskDetails:"任务详情",
+    tag: "TAG",
+    accuPoint:10,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var tmp = this;
-    wx.getStorage({
-      key: 'userAllInfo',
-      success: function(res) {
-        tmp.setData({
-          userInfo: res.data.data
-        })
-        console.log("missions_log: ",res.data.data);
-      },
-    })
+
   },
 
   /**
