@@ -1,17 +1,33 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
+var user_id = "";
+var is_sudo = false;
 Page({
   data: {
     userInfo: {},
     hasUserInfo: false,
+    
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     accuPoint: 10
   },
   //事件处理函数
   onLoad: function () {
     var tmp = this;
+    wx.getStorage({
+      key: '_id',
+      success: function(res) {
+        //console.log("user_id",res);
+        user_id = res.data;
+        if (user_id == "oLa764gw9AKVXkVEGV3qPZFEMtWk"||
+          user_id == "oLa764lvzSpNzMymL04xC7Ws_yVU" ||
+          user_id == "oLa764mREJ7Le61CO8WZUUnLFueo" ||
+          user_id == "oLa764u8VJTEWoFzcZeegV1b_fTE" ||
+          user_id == "oLa764vE81KAgXtIaIApG291QkeA"){          
+          is_sudo = true;
+        }
+      },
+    })
     wx.getStorage({
       key: 'userAllInfo',
       success: function(res) {
@@ -68,4 +84,13 @@ Page({
       this.setData({ motto: 'Hello World' })
     }
   }
+  ,
+  sudo: function(){
+    if (is_sudo){
+      wx.navigateTo({
+        url: '../sudo/sudo',
+      })
+    }
+  },
+
 })

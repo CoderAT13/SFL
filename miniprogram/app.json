@@ -1,11 +1,12 @@
 {
   "pages": [
     "pages/index2/index",
-    "pages/index/index",  
+    "pages/index/index",
     "pages/logs/logs",
     "pages/makeTask/makeTask",
     "pages/taskDetails/taskDetails",
-    "pages/userIndex/userIndex"
+    "pages/userIndex/userIndex",
+    "pages/sudo/sudo"
   ],
   "window": {
     "backgroundColor": "pink",
