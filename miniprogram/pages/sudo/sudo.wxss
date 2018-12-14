@@ -1,1 +1,46 @@
 /* miniprogram/pages/sudo/sudo.wxss */
+#title{
+  text-align: center;
+  color: white;
+  margin: 40rpx;
+}
+image{
+  height: 200rpx;
+  width: 300rpx;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0rpx 0rpx 30rpx white;
+}
+.container{
+  margin-top: 200rpx;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: rgba(53, 167, 196, 0.603);
+  width: 85%;
+  border-radius: 40rpx;
+  box-shadow: 0rpx 0rpx 30rpx gainsboro;
+}
+slider{
+  margin-left: auto;
+  margin-right: auto;
+  width: 500rpx;
+  margin-top: 100rpx;
+  margin-bottom: 100rpx;
+}
+.finishButton{
+  background-color: rgba(128, 128, 128, 0.096);
+  border: 0rpx;
+  border-radius: 0rpx;
+  width: 100%;
+  margin-bottom: 5rpx;
+}
+.nextButton{
+  background-color: rgba(128, 128, 128, 0.096);
+  border: 0rpx;
+  width: 100%;
+  border-radius: 0rpx 0rpx 40rpx 40rpx;
+}
+.text{
+  margin-top: 50rpx;
+  color: white;
+}

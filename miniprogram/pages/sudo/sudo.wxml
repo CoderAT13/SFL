@@ -1,8 +1,10 @@
 <!--miniprogram/pages/sudo/sudo.wxml-->
-<view id="title">sudo</view>
-<image src="{{sub_info}}"></image>
-<view>Description: {{task_description}}</view>
-<view>MaxPoint: {{task_point}}</view>
-<slider bindchange='pointsChange' show-value min="0" max="{{task_point}}"></slider>
-<button type="primary" bindtap='submit'>确认</button>
-<button type="primary" bindtap='next'>Next</button>
+<view class="container">
+  <view id="title">SUDO</view>
+  <image src="{{sub_info}}"></image>
+  <view class="text">Description: {{task_description}}</view>
+  <view class="text">MaxPoint: {{task_point}}</view>
+  <slider bindchange='pointsChange' show-value min="0" max="{{task_point}}"></slider>
+  <button class="finishButton" type="primary" bindtap='submit'>确认</button>
+  <button class="nextButton" type="primary" bindtap='next'>Next</button>
+</view>

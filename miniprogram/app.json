@@ -1,17 +1,17 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/sudo/sudo",
     "pages/logs/logs",
     "pages/makeTask/makeTask",
     "pages/taskDetails/taskDetails",
-    "pages/userIndex/userIndex",
-    "pages/sudo/sudo"
+    "pages/userIndex/userIndex"
   ],
   "window": {
     "backgroundColor": "pink",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarBackgroundColor": "#35A7C4",
     "navigationBarTitleText": "SFL",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   }
 }

@@ -108,7 +108,9 @@ Page({
   submit: function(e){
     var tmp = this;
     db.collection("waitingCheckTasks").doc(tmp.data.waiting_id).remove({
-      success: console.log("remove success")
+      success(res){
+        
+      }
     })
     var user = db.collection("userInfo").where({
       _openid: tmp.data.userid
@@ -138,7 +140,7 @@ Page({
    */
   next: function(e){
     var queue = this.data.waitingQueue;
-    if (have_checked < queue.length()){
+    if (have_checked < queue.length){
       this.setData({
         waiting_id: queue[have_checked]._id,
         userid: queue[have_checked].user_id,
@@ -146,6 +148,16 @@ Page({
         task_name: queue[have_checked].task.task_name,
         task_description: queue[have_checked].task.task_description,
         task_point: queue[have_checked].task.task_point,
+      })
+    }
+    else{
+      this.setData({
+        waiting_id: "",
+        userid: "",
+        sub_info: "",
+        task_name: "null",
+        task_description: "",
+        task_point: 0,
       })
     }
   }

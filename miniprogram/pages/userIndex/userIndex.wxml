@@ -7,12 +7,13 @@
   <view class="card" animation="{{topBarAni4}}">
     <view class="userinfo">
       <block>
-        
         <image class="userinfo-avatar" bindtap='sudo' src="{{userInfo.avatarUrl}}"></image>
         <text class="userinfo-nickname">{{userInfo.nickName}}</text>
         <text class="userinfo-point">积分:{{accuPoint}}</text>
+        
       </block>
     </view>
+    
   </view>
-  <button bindtap='sudo' wx:if="{{is_sudo}}">sudo</button>
 </view>
+<button class="sudoButton" bindtap='sudo' wx:if="{{is_sudo}}">sudo</button>

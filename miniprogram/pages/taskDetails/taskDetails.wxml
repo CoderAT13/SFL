@@ -21,9 +21,10 @@
       </view>
     </view>
     <view class="btn-area">
+    <button bindtap='uploadData' wx:if="{{is_official}}" >上传资料</button>
       <button class="finishButton" wx:if="{{isFinished}}"bindtap='finish' hover-class="finishButtonActive">已完成</button>
       <button class="finishButton" wx:else bindtap='finish' hover-class="finishButtonActive">完成</button>
-      <button class="cancelButton" bindtap='cancel' hover-class="cancelButtonActive">删除</button>
+      <button wx:if="{{!is_official}}" class="cancelButton" bindtap='cancel' hover-class="cancelButtonActive">删除</button>
     </view>
   </view>
 </view>
