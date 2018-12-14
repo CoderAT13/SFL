@@ -1,22 +1,29 @@
 <!--pages/taskDetails/taskDetails.wxml-->
-<view class="inputBar">
-  <form class="inputForm" bindsubmit="formSubmit" bindreset="formReset">
-  <view>
-    <text>任务：</text>
-    <text>{{taskName}}</text>
-    <text class="tag">{{tag}}</text>
+<view class="container" animation="{{cardAni}}">
+  <view class="detailsBar">
+    <view class="infoBar">
+      <view class="nameContainer">
+        <text class="title">任务</text>
+        <view class="name">
+          <text class="taskName">{{taskName}}</text>
+          <text class="tag">{{tag}}</text>
+        </view>
+      </view>
+      <view view class="detailsContainer">
+        <text class="title">详情</text>
+        <view class="details">
+          <text>{{taskDetails}}</text>
+        </view>
+      </view>
+      <view class="pointContainer">
+        <text class="title">悬赏积分：</text>
+        <text>{{accuPoint}}</text>
+      </view>
+    </view>
+    <view class="btn-area">
+      <button class="finishButton" wx:if="{{isFinished}}"bindtap='finish' hover-class="finishButtonActive">已完成</button>
+      <button class="finishButton" wx:else bindtap='finish' hover-class="finishButtonActive">完成</button>
+      <button class="cancelButton" bindtap='cancel' hover-class="cancelButtonActive">删除</button>
+    </view>
   </view>
-  <view>
-    <text>详情：</text>
-    <text>{{taskDetails}}</text>
-  </view>
-  <view>
-    <text>悬赏积分:</text>
-    <text>{{accuPoint}}</text>
-  </view>
-  <view class="btn-area">
-      <button bindtap='finish'>√</button>
-      <button bindtap='cancel'>×</button>
-  </view>
-</form>
 </view>

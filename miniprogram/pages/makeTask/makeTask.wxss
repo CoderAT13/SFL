@@ -1,30 +1,117 @@
 /* pages/makeTask/makeTask.wxss */
+.container{
+  padding: 0rpx;
+  margin-top : 40rpx;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  background-color: white;
+  border-radius: 40rpx;
+  box-shadow: 0rpx 0rpx 20rpx white;
+}
 page{background-color:#FF7676;}
+
 .lineInputBar{
-  margin: 10rpx;
-  border: 1rpx black solid;
+  position: relative;
+  top: -30rpx;
+  margin-top: 35rpx;
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20rpx;
+  box-shadow: 0rpx 0rpx 5rpx rgba(128, 128, 128, 0.527);
+  padding-left: 10rpx;
+  padding-right: 10rpx;
 }
 .inputArea{
-  width: 95%;
+  box-shadow: 0rpx 0rpx 5rpx rgba(128, 128, 128, 0.527);
+  padding: 10rpx;
+  margin-top: 35rpx;
+  margin-bottom: 50rpx;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 30rpx;
+  width: 85%;
   height: 300rpx;
-  margin: 10rpx;
-  border: 1rpx black solid;
   font-size: 30rpx;
 }
 .tag{
+  transition: all 0.5s;
+  padding: 10rpx;
+  padding-left: 20rpx;
+  padding-right:20rpx;
+  text-align: center;
+  height: 40rpx;
+  min-width: 80rpx;
+  color: white;
+  font-weight: bolder;
+  background-color: rgba(255, 118, 118, 0.281);
   display: inline-block;
-  font-size: 30rpx;
+  font-size: 28rpx;
   border-radius: 20rpx 20rpx 20rpx 20rpx ;
-  border: 1rpx black solid;
   margin: 20rpx;
-  padding: 20rpx;
+  box-shadow: 0rpx 0rpx 0rpx rgba(128, 128, 128, 0.527);
 }
 .tagSelected{
-  background-color: gray;
+  background-color: #FF7676;
+  box-shadow: 0rpx 0rpx 15rpx rgba(128, 128, 128, 0.527);
 }
 .tagBar{
+  margin: 50rpx;
+  position: relative;
   min-height: 200rpx;
+  padding-bottom: 35rpx;
+  border-bottom:2rpx rgba(0, 0, 0, 0.658) solid;
 }
 .inputBar{
+  padding: 0rpx;
+  margin: 0rpx;
+  width: 100%;
   display: block;
+}
+button::after {
+  border: none;
+}
+.submitButton{
+  background-color: rgba(128, 128, 128, 0.096);
+  border: 0rpx;
+  border-radius: 0rpx;
+  width: 100%;
+  margin-bottom: 5rpx;
+}
+.submitButtonActive{
+  background-color: rgba(128, 128, 128, 0.493);
+}
+.resetButton{
+  background-color: rgba(128, 128, 128, 0.096);
+  border: 0rpx;
+  width: 100%;
+  border-radius: 0rpx 0rpx 40rpx 40rpx;
+}
+.resetButtonActive{
+  background-color: rgba(128, 128, 128, 0.493);
+}
+
+.inputForm text{
+  position: relative;
+  left: 45rpx;
+  top:-20rpx;
+  color: gray;
+  font-weight: bolder;
+}
+.inputForm .text2{
+  position: relative;
+  left: 45rpx;
+  top:1rpx;
+  color: gray;
+  font-weight: bolder;
+}
+
+.btn-area{
+  position: relative;
+}
+
+.radio-group{
+  padding-left: 10%;
+  margin-bottom: 20px;
 }

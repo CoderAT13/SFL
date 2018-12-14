@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/index2/index",
     "pages/index/index",
     "pages/logs/logs",
     "pages/makeTask/makeTask",

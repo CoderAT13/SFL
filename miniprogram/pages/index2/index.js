@@ -93,29 +93,21 @@ Page({
           data: usr_id
         })
 
-        /*************************用户登陆时自动获取用户所有信息******************/
-        db.collection('UserInfo').doc(res.result.openid).get({
+        /**
+         * 用户登陆时若用户没有用户则创建一个用户
+         */
+        db.collection('userInfo').where({
+          _openid : usr_id
+        })
+          .get({
           success: function (res) {
-            console.log("Storage[userAllInfo]:",res.data);
-            tmp.setData({
-              msg1: res.data
-            })
-            wx.setStorage({
-              key: 'userAllInfo',
-              data: res.data,
-            })
             console.log("getCloudUserInfo: ", res);
           },
           fail: function () {
             //  用户第一次登陆小程序创建一条记录
-            db.collection("UserInfo").add({
+            db.collection("userInfo").add({
               data: {
-                _id: res.result.openid,
-                accPoint: 0,
-                selfTasks: {},    //自建的任务
-                dTasks: {},       //已经完成过的dTasks
-                mTasks: {},       //已经完成过的mTasks
-                yTasks: {}        //已经完成过的yTasks
+                accuPoint: 0,                
               },
               success: function (res) {
                 // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
@@ -139,19 +131,6 @@ Page({
                   avatarUrl: res.userInfo.avatarUrl,
                   userInfo: res.userInfo,
                   hasUserInfo: true,
-                  //msg1: "",
-                  msg2: "Hello!   " + res.userInfo.nickName
-                })
-
-                //console.log(this.data.avatarUrl);
-                console.log(res)
-                db.collection("UserInfo").doc(usr_id).update({
-                  data: {
-                    NickName: res.userInfo.nickName
-                  },
-                  success: function (res) {
-                    //console.log(res.data)
-                  }
                 })
               },
               fail: res => {

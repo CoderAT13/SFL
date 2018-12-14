@@ -13,6 +13,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    waiting_id: "",
     task_name: "CoderS",
     task_description: "null",
     task_point: 0,
@@ -31,14 +32,15 @@ Page({
     }).get({
       success(res){
         tmp.setData({
+          waiting_id: res.data[0]._id,
           waitingQueue: res.data,
           userid: res.data[0].user_id,
-          sub_info: res.data[0]._id,
+          sub_info: res.data[0].fileID,
           task_name: res.data[0].task.task_name,
           task_description: res.data[0].task.task_description,
           task_point: res.data[0].task.task_point,
         })
-        //console.log(res.data);
+        console.log(res.data);
       }
     })
   },
@@ -105,26 +107,27 @@ Page({
    */
   submit: function(e){
     var tmp = this;
-    db.collection("waitingCheckTasks").doc(sub_info).update({
-      data:{
-        checked: true
-      },
-      success: function(res){
-        have_checked++;
-        console.log("checked success")
-      }
+    db.collection("waitingCheckTasks").doc(tmp.data.waiting_id).remove({
+      success: console.log("remove success")
     })
-    var user = db.collection("UserInfo").doc(tmp.data.userid);
+    var user = db.collection("userInfo").where({
+      _openid: tmp.data.userid
+    });
     var user_points = 0;
     user.get({
       success: function(res){
-        user_points = res.data.accuPoint;
+        user_points = res.data[0].accuPoint;
         user_points += points;
-        user.update({
+        wx.cloud.callFunction({
+          name: 'updatePoint',
           data:{
+            userid: tmp.data.userid,
             user_points: user_points
           },
-          success: console.log("update points success")
+          success(res){
+            console.log(res.result)
+          },
+          fail: console.error
         })
       }
     })
@@ -137,8 +140,9 @@ Page({
     var queue = this.data.waitingQueue;
     if (have_checked < queue.length()){
       this.setData({
+        waiting_id: queue[have_checked]._id,
         userid: queue[have_checked].user_id,
-        sub_info: queue[have_checked]._id,
+        sub_info: queue[have_checked].fileID,
         task_name: queue[have_checked].task.task_name,
         task_description: queue[have_checked].task.task_description,
         task_point: queue[have_checked].task.task_point,

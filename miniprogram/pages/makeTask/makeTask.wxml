@@ -1,18 +1,25 @@
 <!--pages/makeTask/makeTask.wxml-->
-<view class="tagBar">
-  <view wx:for="{{tagList}}" wx:for-item="item" wx:key="unique" data-id="{{index}}" class="tag '{{item.checked?'tagSelected':''}}'" bindtap='radio'>
-    <text>{{item.value}}</text>
+<view class="container" animation="{{cardAni}}">
+  <view class="tagBar">
+    <view wx:for="{{tagList}}" wx:for-item="item" wx:key="unique" data-id="{{index}}" class="tag '{{item.checked? 'tagSelected':''}}'" bindtap='radio'>
+      <text>{{item.value}}</text>
+    </view>
   </view>
-</view>
-<view class="inputBar">
-  <form class="inputForm" bindsubmit="formSubmit" bindreset="formReset">
-  <text>任务：</text>
-  <input class="lineInputBar" name="inputName" placeholder="如跑步"/>
-  <text>详情：</text>
-  <textarea class="inputArea" name="inputDetails" placeholder='如配速大于10m/s'></textarea>
-  <view class="btn-area">
-      <button form-type="submit">√</button>
-      <button form-type="reset">×</button>
+  <view class="inputBar">
+    <form class="inputForm" bindsubmit="formSubmit" bindreset="formReset">
+    <radio-group class="radio-group" bindchange="radioChange">
+      <label class="radio" wx:for="{{items}}">
+        <radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+      </label>
+    </radio-group>
+      <text>任务</text>
+      <input class="lineInputBar" name="inputName" placeholder=""/>
+      <text class="text2">详情</text>
+      <textarea class="inputArea" name="inputDetails" placeholder=''></textarea>
+      <view class="btn-area">
+        <button class="submitButton" form-type="submit" hover-class="submitButtonActive">创建</button>
+        <button class="resetButton" form-type="reset" hover-class="resetButtonActive">清空</button>
+      </view>
+    </form>
   </view>
-</form>
 </view>

@@ -1,30 +1,92 @@
 /* pages/taskDetails/taskDetails.wxss */
 /* pages/makeTask/makeTask.wxss */
-.lineInputBar{
-  margin: 10rpx;
-  border: 1rpx black solid;
+page{
+  color: gray;
+  background-color: #35A7C4;
 }
-.inputArea{
-  width: 95%;
-  height: 300rpx;
-  margin: 10rpx;
-  border: 1rpx black solid;
-  font-size: 30rpx;
+.detailsBar{
+  width: 100%;
+}
+.infoBar{
+  margin-top: 100rpx;
+  margin-right: 80rpx;
+  margin-left: 80rpx;
+  margin-bottom: 40rpx;
 }
 .tag{
-  display: inline-block;
-  font-size: 30rpx;
+  padding: 10rpx;
+  padding-left: 20rpx;
+  padding-right:20rpx;
+  text-align: center;
+  height: 40rpx;
+  min-width: 80rpx;
+  color: white;
+  font-weight: bolder;
+  background-color: #35A7C4;
+  font-size: 28rpx;
   border-radius: 20rpx 20rpx 20rpx 20rpx ;
-  border: 1rpx black solid;
+  box-shadow: 0rpx 0rpx 0rpx rgba(128, 128, 128, 0.527);
+}
+.taskName{
+  padding: 30rpx;
+  margin-top: 35rpx;
+  margin-bottom: 50rpx;
+  border-radius: 30rpx;
+  height: 300rpx;
+  font-size: 30rpx;
+}
+.infoBar .title{
+  color: gray;
+  font-weight: bolder;
+}
+.container{
+  box-shadow: 0rpx 0rpx 20rpx white;
+  padding: 0rpx;
+  margin-top : 40rpx;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  background-color: white;
+  border-radius: 40rpx;
+}
+.name{
   margin: 20rpx;
-  padding: 20rpx;
 }
-.tagSelected{
-  background-color: gray;
+.nameContainer{
+  margin-bottom: 40rpx;
+  padding-bottom: 30rpx;
+  border-bottom: 1rpx solid gray;
 }
-.tagBar{
-  min-height: 200rpx;
+.details{
+  height: 350rpx;
+  margin: 20rpx;
+  margin-bottom: 40rpx;
+  font-size: 28rpx;
 }
-.inputBar{
-  display: block;
+.detailsContainer{
+  margin-bottom: 40rpx;
+  border-bottom: 1rpx solid gray;
+}
+
+button::after{
+  border: none;
+}
+.finishButton{
+  background-color: rgba(128, 128, 128, 0.096);
+  border: 0rpx;
+  border-radius: 0rpx;
+  width: 100%;
+  margin-bottom: 5rpx;
+}
+.finishButtonActive{
+  background-color: rgba(128, 128, 128, 0.493);
+}
+.cancelButton{
+  background-color: rgba(128, 128, 128, 0.096);
+  border: 0rpx;
+  width: 100%;
+  border-radius: 0rpx 0rpx 40rpx 40rpx;
+}
+.cancelButtonActive{
+  background-color: rgba(128, 128, 128, 0.493);
 }

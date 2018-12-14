@@ -1,29 +1,34 @@
-<!--index.wxml-->
-<view class="title">SFL</view>
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{msg2}}</text>
-    </block>
+<!--pages/index/index.wxml-->
+<view id='topBar'>
+  <button class="userinfo-avatar" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> N </button>
+  <image class='userinfo-avatar' wx:if="{{!(!hasUserInfo && canIUse)}}"  bindtap="toUserIndex" src="{{userInfo.avatarUrl}}"></image>
+  <view id="plusButton" bindtap='toMakeTask'>
+  <view id="plus" animation="{{plusAni}}"><text wx:if="{{showPlus}}">+</text></view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+</view>
+<view class="AllTaskBar" animation="{{cardAni}}">
+  <view class="taskBar dayTaskBar" animation="{{aniForDayBar}}">
+  <text>每日</text>
+  <view class="{{item.isFinished?'taskfinished':'taskunfinished'}}" wx:for="{{dayTask}}" wx:for-item="item" wx:key="unique" id="{{item.id}}" bindtap='toDetails'>
+    <text class="taskName">{{item.name}}</text>
+    <button class="taskButton" wx:if="{{item.isFinished}}">√</button>
+    <button class="taskButton" wx:else>⚪</button>
   </view>
-  <button bindtap='navigate_to_missions'>missions</button>
-  <text class="text_info">
-  下面这段只是测试 (新用户需要进两次小程序才有显示）
-
-  NickName: {{msg1.NickName}}
-
-  accPoint: {{msg1.accPoint}}
-
-  openID: {{msg1._openid}}
-
-  dailyMission(空）: {{msg1.dailyMission}}
-
-  randomMission(空）: {{msg1.randomMission}}
-  
-  </text>
+</view>
+<view class="taskBar monthTaskBar" animation="{{aniForMonthBar}}">
+  <text>每月</text>
+  <view class="{{item.isFinished?'taskfinished':'taskunfinished'}}" wx:for="{{monthTask}}" wx:for-item="item" wx:key="unique" id="{{item.id}}" bindtap='toDetails'>
+    <text class="taskName">{{item.name}}</text>
+    <button class="taskButton" wx:if="{{item.isFinished}}">√</button>
+    <button class="taskButton" wx:else>⚪</button>
+  </view>
+</view>
+<view class="taskBar yearTaskBar" animation="{{aniForYearBar}}">
+  <text>每年</text>
+  <view class="{{item.isFinished?'taskfinished':'taskunfinished'}}" wx:for="{{yearTask}}" wx:for-item="item" wx:key="unique" id="{{item.id}}" bindtap='toDetails'>
+    <text class="taskName">{{item.name}}</text>
+    <button class="taskButton" wx:if="{{item.isFinished}}">√</button>
+    <button class="taskButton" wx:else>⚪</button>
+  </view>
+</view>
 </view>

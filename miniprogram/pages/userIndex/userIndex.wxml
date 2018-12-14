@@ -1,23 +1,18 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <block>
-      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" bindtap="sudo"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-      <text class="userinfo-point">积分:{{accuPoint}}</text>
-    </block>
+<view class='topBar1'></view>
+<view class='topBar2' animation="{{topBarAni1}}"></view>
+<view class='topBar3' animation="{{topBarAni2}}"></view>
+<view class='topBar4' animation="{{topBarAni3}}"></view>
+  <view class="card" animation="{{topBarAni4}}">
+    <view class="userinfo">
+      <block>
+        
+        <image class="userinfo-avatar" bindtap='sudo' src="{{userInfo.avatarUrl}}"></image>
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        <text class="userinfo-point">积分:{{accuPoint}}</text>
+      </block>
+    </view>
   </view>
-  
-  <view class="colorBallBar">
-    <!--
-    <view class="colorBall" id="red"></view>
-    <view class="colorBall" id="yellow"></view>
-    <view class="colorBall" id="green"></view>
-    <view class="colorBall" id="blue"></view>
-    -->
-    <!-- <view class="colorBall"></view>
-    <view class="colorBall"></view>
-    <view class="colorBall"></view> -->
-  </view>
-  
+  <button bindtap='sudo' wx:if="{{is_sudo}}">sudo</button>
 </view>

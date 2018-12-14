@@ -1,8 +1,51 @@
 /**index.wxss**/
 page{
+  background-color: white；
+}
+.topBar1{
+  top: -10rpx;
+  position: fixed;
+  height: 75rpx;
+  width: 100%;
   background-color: rgb(53, 167, 196);
+  border-radius: 0 0 100% 0%;
+  z-index: 10;
+  box-shadow: 0rpx 0rpx 10rpx rgb(153, 153, 153);
+}
+.topBar2{
+  top: -450rpx;
+  position: fixed;
+  height: 500rpx;
+  width: 130%;
+  background-color: rgb(120, 186, 202);
+  border-radius: 0 0 0% 100%;
+  z-index: -1;
+  box-shadow: 0rpx 0rpx 10rpx rgb(153, 153, 153);
+}
+.topBar3{
+  top: -300rpx;
+  position: fixed;
+  height: 600rpx;
+  width: 130%;
+  background-color: rgb(184, 222, 231);
+  border-radius: 0 0 80% 0%;
+  z-index: -2;
+  box-shadow: 0rpx 0rpx 10rpx rgb(153, 153, 153);
+}
+.topBar4{
+  top: 0rpx;
+  position: fixed;
+  height: 400rpx;
+  width: 130%;
+  background-color: rgb(226, 241, 245);
+  border-radius: 0 0 0% 100%;
+  z-index: -3;
+  box-shadow: 0rpx 0rpx 10rpx rgb(153, 153, 153);
 }
 .userinfo {
+  position: relative;
+  top: 200rpx;
+  font-weight: bold;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,28 +59,12 @@ page{
   display: inline-block;
   position: relative;
 }
-#red{
-  background-color: red;
-  z-index: -1;
-}
-#yellow{
-  background-color: yellow;
-  z-index: -1;
-}
-#green{
-  background-color: green;
-  z-index: -1;
-}
-#blue{
-  background-color: blue;
-  z-index: -1;
-}
 .userinfo-avatar {
   width: 128rpx;
   height: 128rpx;
   margin: 20rpx;
   border-radius: 50%;
-  box-shadow: 0rpx 0rpx 20rpx white;
+  box-shadow: 0rpx 0rpx 50rpx white;
 }
 
 .userinfo-nickname {
@@ -50,4 +77,15 @@ page{
 
 .usermotto {
   margin-top: 200px;
+}
+
+.card{
+  opacity: 0.5;
+  position: relative;
+  top: -50px;
+  z-index: -2;
+  border-radius: 45rpx 45rpx 45rpx 45rpx;
+  height: 900rpx;
+  width: 500rpx;
+  background-color: rgb(121, 208, 248);
 }
