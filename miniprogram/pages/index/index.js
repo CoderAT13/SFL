@@ -8,7 +8,7 @@ wx.cloud.init({
 });
 let userID;
 const db = wx.cloud.database();
-
+const _ = db.command;
 Page({
 
   /**
@@ -120,6 +120,111 @@ Page({
             }
           },
         })
+        // 获取用户日任务
+        db.collection('Tasks').where(_.or([
+          {
+            type: 'D',
+            _openid: usr_id
+          },
+          {
+            type: 'D',
+            _openid: tmp.data.adminOpenId
+          }
+        ]))
+          .get({
+            success(res) {
+              for (var i = 0; i < res.data.length; i++) {
+                //console.log(res.data[i].done);
+                //console.log(res.data[i].missionInfo.inputName);
+                var idTemp = res.data[i]._id;
+                var isInsert = true;
+                //console.log(tmp.data.dayTask.length);
+                for (var index = 0; index < tmp.data.dayTask.length; index++) {
+                  if (tmp.data.dayTask[index].id == idTemp) {
+                    isInsert = false;
+                  }
+                }
+                if (isInsert == true) {
+                  //console.log("test");
+                  tmp.data.dayTask.push({ 'name': res.data[i].missionInfo.inputName, 'isFinished': res.data[i].done, 'id': res.data[i]._id });
+                  tmp.setData({
+                    dayTask: tmp.data.dayTask
+                  })
+                }
+                //console.log(tmp.data.dayTask);
+              }
+            }
+          })
+          // 获取用户月任务
+        db.collection('Tasks').where(_.or([
+          {
+            type: 'M',
+            _openid: usr_id
+          },
+          {
+            type: 'M',
+            _openid: tmp.data.adminOpenId
+          }
+        ]))
+          .get({
+            success(res) {
+              for (var i = 0; i < res.data.length; i++) {
+                //console.log(res.data[i].done);
+                //console.log(res.data[i].missionInfo.inputName);
+                var idTemp = res.data[i]._id;
+                var isInsert = true;
+                //console.log(tmp.data.dayTask.length);
+                for (var index = 0; index < tmp.data.monthTask.length; index++) {
+                  if (tmp.data.monthTask[index].id == idTemp) {
+                    isInsert = false;
+                  }
+                }
+                if (isInsert == true) {
+                  //console.log("test");
+                  tmp.data.monthTask.push({ 'name': res.data[i].missionInfo.inputName, 'isFinished': res.data[i].done, 'id': res.data[i]._id });
+                  tmp.setData({
+                    monthTask: tmp.data.monthTask
+                  })
+                }
+                //console.log(tmp.data.dayTask);
+              }
+            }
+          })
+          // 获取用户年任务
+        db.collection('Tasks').where(_.or([
+          {
+            type: 'Y',
+            _openid: usr_id
+          },
+          {
+            type: 'Y',
+            _openid: tmp.data.adminOpenId
+          }
+        ]))
+          .get({
+            success(res) {
+              for (var i = 0; i < res.data.length; i++) {
+                //console.log(res.data[i].done);
+                //console.log(res.data[i].missionInfo.inputName);
+                var idTemp = res.data[i]._id;
+                var isInsert = true;
+                //console.log(tmp.data.dayTask.length);
+                for (var index = 0; index < tmp.data.yearTask.length; index++) {
+                  if (tmp.data.yearTask[index].id == idTemp) {
+                    isInsert = false;
+                  }
+                }
+                if (isInsert == true) {
+                  //console.log("test");
+                  tmp.data.yearTask.push({ 'name': res.data[i].missionInfo.inputName, 'isFinished': res.data[i].done, 'id': res.data[i]._id });
+                  tmp.setData({
+                    yearTask: tmp.data.yearTask
+                  })
+                }
+                //console.log(tmp.data.dayTask);
+              }
+            }
+          })
       },
       fail: console.error
     }),
@@ -154,115 +259,6 @@ Page({
         }
       })
 
-      //new
-    var DTasks;
-
-    const _ = db.command;
-    console.log(tmp.data.adminOpenId);
-    db.collection('Tasks').where(_.or([
-      {
-        type: 'D',
-        _openid: usr_id
-      },
-      {
-        type: 'D',
-        _openid: tmp.data.adminOpenId
-      }
-    ]))
-      .get({
-        success(res) {
-          for (var i = 0; i < res.data.length; i++) {
-            //console.log(res.data[i].done);
-            //console.log(res.data[i].missionInfo.inputName);
-            var idTemp = res.data[i]._id;
-            var isInsert = true;
-            //console.log(tmp.data.dayTask.length);
-            for (var index = 0; index < tmp.data.dayTask.length; index++) {
-              if (tmp.data.dayTask[index].id == idTemp) {
-                isInsert = false;
-              }
-            }
-            if (isInsert == true) {
-              //console.log("test");
-              tmp.data.dayTask.push({ 'name': res.data[i].missionInfo.inputName, 'isFinished': res.data[i].done, 'id': res.data[i]._id });
-              tmp.setData({
-                dayTask: tmp.data.dayTask
-              })
-            }
-            //console.log(tmp.data.dayTask);
-          }
-        }
-      })
-    db.collection('Tasks').where(_.or([
-      {
-        type: 'M',
-        _openid: usr_id
-      },
-      {
-        type: 'M',
-        _openid: tmp.data.adminOpenId
-      }
-    ]))
-      .get({
-        success(res) {
-          for (var i = 0; i < res.data.length; i++) {
-            //console.log(res.data[i].done);
-            //console.log(res.data[i].missionInfo.inputName);
-            var idTemp = res.data[i]._id;
-            var isInsert = true;
-            //console.log(tmp.data.dayTask.length);
-            for (var index = 0; index < tmp.data.monthTask.length; index++) {
-              if (tmp.data.monthTask[index].id == idTemp) {
-                isInsert = false;
-              }
-            }
-            if (isInsert == true) {
-              //console.log("test");
-              tmp.data.monthTask.push({ 'name': res.data[i].missionInfo.inputName, 'isFinished': res.data[i].done, 'id': res.data[i]._id });
-              tmp.setData({
-                monthTask: tmp.data.monthTask
-              })
-            }
-            //console.log(tmp.data.dayTask);
-          }
-        }
-      })
-    db.collection('Tasks').where(_.or([
-      {
-        type: 'Y',
-        _openid: usr_id
-      },
-      {
-        type: 'Y',
-        _openid: tmp.data.adminOpenId
-      }
-    ]))
-      .get({
-        success(res) {
-          for (var i = 0; i < res.data.length; i++) {
-            //console.log(res.data[i].done);
-            //console.log(res.data[i].missionInfo.inputName);
-            var idTemp = res.data[i]._id;
-            var isInsert = true;
-            //console.log(tmp.data.dayTask.length);
-            for (var index = 0; index < tmp.data.yearTask.length; index++) {
-              if (tmp.data.yearTask[index].id == idTemp) {
-                isInsert = false;
-              }
-            }
-            if (isInsert == true) {
-              //console.log("test");
-              tmp.data.yearTask.push({ 'name': res.data[i].missionInfo.inputName, 'isFinished': res.data[i].done, 'id': res.data[i]._id });
-              tmp.setData({
-                yearTask: tmp.data.yearTask
-              })
-            }
-            //console.log(tmp.data.dayTask);
-          }
-        }
-      })
-    
-
     if (this.data.state) {
       //console.log(this.data.state);
       setTimeout(function () {
@@ -285,7 +281,6 @@ Page({
   onShow: function () {
     var tmp = this;
     var DTasks;
-
 
     const db = wx.cloud.database();
     const _ = db.command;
